@@ -1,0 +1,11 @@
+body {background-color:#eee;}
+.container-fluid {
+	padding:50px;
+	background-image: url('family.jpg');
+}
+.container{background-color:white;padding:50px;   }
+#title{font-family: 'Lobster', cursive;;}
+.container1{
+	background-color:#eee;
+	padding:50px;
+}
