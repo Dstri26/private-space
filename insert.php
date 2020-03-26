@@ -1,7 +1,11 @@
 <?php
-echo '<script type="text/javascript">
-alert("You have successfully signed up!");
-</script>';
+
+session_start();
+if(!isset($_SESSION["uname"])){
+    header('location:index.php');
+
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,17 +57,17 @@ alert("You have successfully signed up!");
       <hr>
       <div class="row">
         <div class="col-md-5">
-          <form role="form" method="post" action="upload.php" enctype="multipart/form-data">
-            <div class="form-group"> 
-    <label for="formGroupExampleInput">Private Group Name</label>
-    <input type="text" class="form-control" id="gname" name="gname" placeholder="Group Name" required>
-  </div>
-  <div>
-                    <input type="submit" class="btn btn-lg btn-primary" value="Submit">
-              </div>
-        </div>
-        </fieldset>
-          </form>
+    <form role="form" method="post" action="upload.php" enctype="multipart/form-data">
+                    <div class="form-group"> 
+            <label for="formGroupExampleInput">Private Group Name</label>
+            <input type="text" class="form-control" id="gname" name="gname" placeholder="Group Name" required>
+            </div>
+            <div>
+                  <input type="submit" class="btn btn-lg btn-primary" value="Submit">
+                      </div>
+                </div>
+                </fieldset>
+    </form>
        </div>
      </div>
    </div>

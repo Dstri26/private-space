@@ -26,5 +26,5 @@ else{
 	header('Location:index.html');
 }
 }
-$_SESSION["fname"]=$fname;
+$_SESSION["uname"]=$uname;
 ?>

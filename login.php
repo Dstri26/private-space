@@ -11,5 +11,5 @@ if(mysqli_num_rows($login_result)==1){
 else{
 	header('Location:login_failure.php');
 }
-$_SESSION["fname"]=$fname;
+$_SESSION["uname"]=$uname;
 ?>
