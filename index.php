@@ -11,6 +11,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript">
+    function chk(i)
+{
+  b=document.getElementById("b");
+  if(i.checked)
+  {
+    b.disabled=false;
+  }
+  else
+  {
+    b.disabled=true;
+  }
+}
+  </script>
   <link rel="icon" href="logo.png" type="image/icon type">
 	<title>Private Space</title>
   <!--stylesheets-->
@@ -59,7 +73,7 @@
       <hr>
       <div class="row">
         <div class="col-md-5">
-          <form role="form" method="post" action="signup.php">
+          <form role="form" method="post" action="signup.php" enctype="multipart/form-data">
             <fieldset>              
               <p class="text-uppercase pull-center"> SIGN UP.</p> 
               <div class="form-group">
@@ -83,14 +97,19 @@
               <div class="form-group">
                 <input type="number" name="age" id="age" class="form-control input-lg" placeholder="Age" pattern="[0-9]" required>
               </div>
+
+              <div class="form-group">
+                <input type="file" name="dp" id="dp" class="form-control input-lg" placeholder="Insert Image" required>
+              </div>
+
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" required>
-                  By Clicking register you agree to our policy & terms
+                  <input type="checkbox" class="form-check-input" onclick="chk(this)" required>
+                  By Clicking register you agree to our <a href="#">policy & terms</a>
                 </label>
                 </div>
               <div>
-                    <input type="submit" class="btn btn-lg btn-primary"   value="Register">
+                    <input type="submit" id="b" class="btn btn-lg btn-primary" disabled=""  value="Register">
               </div>
             </fieldset>
           </form>
