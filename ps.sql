@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 08:42 PM
+-- Generation Time: Mar 26, 2020 at 06:12 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -44,7 +44,8 @@ CREATE TABLE `signup` (
   `uname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `age` int(10) NOT NULL
+  `age` int(10) NOT NULL,
+  `dp` varchar(100) NOT NULL DEFAULT 'default.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 

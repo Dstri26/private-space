@@ -7,6 +7,9 @@ $email=$_POST['email'];
 $pwd=$_POST['password'];
 $cpwd=$_POST['password'];
 $age=$_POST['age'];
+$dp=$_FILES['dp']['name'];
+$loc="dp/".$dp;
+
 $duplicate="SELECT * FROM signup WHERE uname='$uname'";
 $duplicate_result=mysqli_query($con,$duplicate);
 if(mysqli_num_rows($duplicate_result)==1){
@@ -15,8 +18,9 @@ if(mysqli_num_rows($duplicate_result)==1){
 }
 else{
 if(strcmp($pwd,$cpwd)==0){
-	$query="INSERT INTO signup(fname,uname,email,password,age) VALUES('$fname','$uname','$email','$pwd','$age');";
+	$query="INSERT INTO signup(fname,uname,email,password,age,dp) VALUES('$fname','$uname','$email','$pwd','$age','$dp');";
 	$query_result=mysqli_query($con,$query) or die(mysqli_error($con));
+	move_uploaded_file($_FILES['dp']['tmp_name'],$loc);
 	header('Location:insert.php');
 }
 else{
