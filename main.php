@@ -2,8 +2,8 @@
 
 session_start();
 if (!isset($_SESSION["uname"])) {
-		header('location:index.php');
-	}
+    header('location:index.php');
+  }
 
 echo "<script>
 alert('Welcome to your own Private Space!');
@@ -20,11 +20,13 @@ $row = mysqli_fetch_assoc($result);
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="icon" href="logo.png" type="image/icon type">
-	<title>Private Space</title>
+  <link rel="icon" href="logo.png" type="image/icon type">
+  <title>Private Space</title>
   <!--stylesheets-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="main.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet"/>
 
     <script src="jquery/jquery.min.js"></script>
     <!---- jquery link local dont forget to place this in first than other script or link or may not work ---->
@@ -41,19 +43,70 @@ $row = mysqli_fetch_assoc($result);
     <link rel="icon" href="images/icon.png" type="image/x-icon" />
     <!---- Icon link local ----->
     
-  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <!---- Font awesom link local ----->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 52px;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav u{
+  padding: 6px 8px 6px 16px;
+  font-size: 24px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+
+
+<!--header-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 0px;">
+  <a class="navbar-brand" href="#">Private Space</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">Private Space</a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
       <li class="nav-item active">
-      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="insert.php">Create Another Group</a>
@@ -62,16 +115,29 @@ $row = mysqli_fetch_assoc($result);
         <a class="nav-link" href="logout.php">Logout</a>
       </li>
       <li class="nav-item">
-      	<a class="nav-link" href="profile.php" style="float: right;"><img src="dp/<?php echo $row['dp']; ?>" style="width: 20px;height: 20px;border-radius: 50%;"><span> <?php echo $uname; ?></span></a>
+        <a class="nav-link" href="profile.php" style="float: right;"><img src="dp/<?php echo $row['dp']; ?>" style="width: 20px;height: 20px;border-radius: 50%;"><span> <?php echo $uname; ?></span></a>
     </li>
     </ul>
   </div>
-</nav><br><br><br><br>
+</nav>
 
 <form>
-	<div class="form-group">
-	    <label for="status"></label>
-	    <textarea style="width: 70%;" class="form-control" id="status" name="status" rows="3" placeholder="Hey what's on your mind?"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Share</button>
+<div class="form-group" style="margin-left: 12%;">
+    <label for=""></label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Hey what's on your mind?"></textarea>
+</div>
+<button type="submit" class="btn btn-primary" style="float: right;">Share</button>
 </form>
+
+<!--Sidebar-->
+<div class="sidenav">
+  <u>Your groups</u>
+  <a href="#">Doctype</a>
+  <a href="#">Another group name</a>
+  <a href="#">Another group name</a>
+  <a href="#">Another group name</a>
+</div>
+
+</body>
+</html>
+
